@@ -1,4 +1,6 @@
 // technique: sliding window
+// time complexity: O(k*n)
+// space complexity: O(n)
 
 import java.util.Arrays;
 
