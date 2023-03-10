@@ -11,7 +11,7 @@ public class MaxMeanSubarray {
 		int[] test0 = null;
 		System.out.println("Input Array: " + Arrays.toString(test0));
 		System.out.println("Input k: " + 0);
-		System.out.println("Expected Output is: " + 0.0);
+		System.out.println("Expe![](../../../../../../../var/folders/w7/vg27hlsx0_gc6362mpsz2lx40000gn/T/TemporaryItems/NSIRD_screencaptureui_KlosQS/Screen Shot 2023-03-08 at 10.53.12 PM.png)cted Output is: " + 0.0);
 		System.out.println("Actual Output: " + maxMeanSubArray(test0, 0));
 		System.out.println("--------------");
 
@@ -86,3 +86,6 @@ public class MaxMeanSubarray {
 	}
 
 }
+
+// time taken to complete: about 40 min (I finished right as the timer went off)
+// this included figuring out my general work organistion (eg. working w/ vim + intelij
