@@ -1,7 +1,7 @@
 // technique: forward-backward two-pointers (meet in the "middle")
 // time complexity: O(n)
     // --> but multiplied by whatever the time complexity of contains is
-// space complexity: O(n) 
+// space complexity: O(n)
 
 public class ReverseVowels {
 
