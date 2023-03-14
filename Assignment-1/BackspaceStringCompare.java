@@ -1,4 +1,6 @@
 // technique: not sure
+// OK in hindsight, this can probably be done w/
+// a simultaneous iteration two-pointer technique
 // time complexity: O(n + m) where n and m are the lengths of each string
 // space complexity: O(n + m) where n and m are the lengths of each string
 
