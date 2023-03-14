@@ -1,3 +1,4 @@
+// technique: not sure
 // time complexity: O(n + m) where n and m are the lengths of each string
 // space complexity: O(n + m) where n and m are the lengths of each string
 
