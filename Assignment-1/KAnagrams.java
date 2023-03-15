@@ -1,4 +1,6 @@
 // technique: sort then solve and then two-pointer
+// OK NOW IN HINDSIGHT I THINK I NEED TO USE A HASHMAP
+// New strategy: create a hashmap for each string and ensure that the counts are no different than length - k
 // time complexity: O(n log n) because of the sorting
 // space complexity:
 
