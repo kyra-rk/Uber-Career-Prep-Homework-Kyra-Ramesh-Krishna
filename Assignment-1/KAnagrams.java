@@ -1,10 +1,9 @@
-// technique: sort then solve and then two-pointer
-// OK NOW IN HINDSIGHT I THINK I NEED TO USE A HASHMAP
-// New strategy: create a hashmap for each string and ensure that the counts are no different than length - k
-// time complexity: O(n log n) because of the sorting
-// space complexity:
+// technique: sort then solve and then two-pointer X NEW: increment/decrement counts with hashmap
+// time complexity: O(n log n) because of the sorting X NEW: O(n)
+// space complexity: O(1) X NEW: O(n)
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class KAnagrams {
     public static void main(String[] args) {
@@ -63,6 +62,36 @@ public class KAnagrams {
     determine if they are k-anagrams.
     */
     public static boolean kAnagrams(String a, String b, int k){
+        // new solution:
+        int mismatch = 0;
+        if (a.length() != b.length()) {
+            return false;
+        }
+        HashMap<Character, Integer> hash = new HashMap<>();
+        // updated hash with a
+        for (int i = 0; i < a.length(); i++) {
+            if (hash.get(a.charAt(i)) == null){
+                hash.put(a.charAt(i), 1);
+            }
+            else{
+                hash.put(a.charAt(i), hash.get(a.charAt(i)) + 1);
+            }
+        }
+        for (int i = 0; i < b.length(); i++) {
+            if (hash.get(b.charAt(i)) == null){
+                mismatch ++;
+            }
+            else{
+                hash.put(b.charAt(i), hash.get(b.charAt(i)) - 1);
+            }
+        }
+        for (Character c : hash.keySet()) {
+            if (hash.get(c) != 0) {
+                mismatch++;
+            }
+        }
+        return mismatch/2 <= k;
+        /*
         if (a.length() != b.length()) {
             return false;
         }
@@ -84,8 +113,10 @@ public class KAnagrams {
             j++;
         }
         return mismatch <= k || k == arrA.length;
+        */
+
     }
 }
 
 // time taken: 40 min (timed out)
-// it works with the given answers BUT I don't think it's a correct solution
+// creating my new version took around 10-15 min

@@ -1,7 +1,8 @@
-//technique: binary search variation
+// technique: binary search variation
 // time complexity: O(log n)
 // space complexity: O(n) -- not sure how to do this for sorting/recursion
 // do I need to keep the stack frames (of recursion) into account?
+// question: is a helper method allowed?  
 
 import java.util.Arrays;
 

@@ -1,8 +1,8 @@
-// technique:
-// time complexity:
-// space complexity:
+// technique: not super sure
+// I definitely think that this is not the best method. I need help figuring it out
+// time complexity: O(n^2)
+// space complexity: O(1)
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -60,4 +60,4 @@ public class TwoSum {
     }
 }
 
-// time taken:
+// time taken: 37 min

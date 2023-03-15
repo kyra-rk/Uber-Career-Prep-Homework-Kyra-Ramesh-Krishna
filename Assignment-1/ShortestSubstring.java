@@ -57,5 +57,7 @@ public class ShortestSubstring {
         return true;
     }
 }
+
+// time taken: timed out!
 // I am struggling with the second and third test case
 // how do I account for multiple of the same characters in the required string?

@@ -88,4 +88,4 @@ public class MaxMeanSubarray {
 }
 
 // time taken to complete: about 40 min (I finished right as the timer went off)
-// this included figuring out my general work organistion (eg. working w/ vim + intelij
+// this included figuring out my general work organization (eg. working w/ vim + intelij)

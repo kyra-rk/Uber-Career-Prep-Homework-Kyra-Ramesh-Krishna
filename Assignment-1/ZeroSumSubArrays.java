@@ -1,13 +1,6 @@
 // technique: growing/shrinking sliding window with variable size
-// time complexity: not super sure but I think O(n^2)
-/*
-a b c d e   -- n
-(n + n - 1 + n - 2 + ... 1 )
-(n - 1 + n - 1 + n - 2 ... 1)
-...
-1
- */
-// space complexity: O(n)
+// time complexity: O(n^2)
+// space complexity: O(1)
 
 import java.util.Arrays;
 

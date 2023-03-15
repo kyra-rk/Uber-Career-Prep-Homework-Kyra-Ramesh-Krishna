@@ -2,7 +2,6 @@
 // time complexity: (n^2)
 // space complexity: O(n)
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MergeIntervals {
     public static void main (String[] args){
@@ -112,4 +111,4 @@ class Pair {
     }
 }
 
-// time taken: timed out! the second case is not working. not sure if I am on the right track
+// time taken: timed out at 40 min! the second case is not working. not sure if I am on the right track

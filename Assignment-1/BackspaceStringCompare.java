@@ -1,6 +1,6 @@
 // technique: not sure
-// OK in hindsight, this can probably be done w/
-// a simultaneous iteration two-pointer technique
+// OK in hindsight, this can probably be done with
+// a simultaneous iteration two-pointer technique and using indexOf() 
 // time complexity: O(n + m) where n and m are the lengths of each string
 // space complexity: O(n + m) where n and m are the lengths of each string
 
@@ -55,8 +55,6 @@ public class BackspaceStringCompare {
                 arrB.add(c);
             }
         }
-//        System.out.println("arrA: " + arrA.toString());
-//        System.out.println("arrB: " + arrB.toString());
         if (arrA.size() != arrB.size()) {
             return false;
         }
