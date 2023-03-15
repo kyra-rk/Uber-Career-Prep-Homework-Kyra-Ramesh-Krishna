@@ -47,6 +47,13 @@ public class KAnagrams {
         System.out.println("Input: " + a + ", " + b + ", k: " + k);
         System.out.println("Expected output: false");
         System.out.println("Output: " + kAnagrams(a, b, k));
+
+        a = "bridge";
+        b = "smidgp";
+        k = 3;
+        System.out.println("Input: " + a + ", " + b + ", k: " + k);
+        System.out.println("Expected output: true");
+        System.out.println("Output: " + kAnagrams(a, b, k));
     }
 
     /* Two strings are considered to be “k-anagrams” if they can be made into anagrams
@@ -63,7 +70,7 @@ public class KAnagrams {
         Arrays.sort(arrB);
         int i = 0, j = 0, mismatch = 0;
         while (i < arrA.length && j < arrA.length) {
-            while(i < arrA.length && j < arrA.length && arrA[i] < arrB[j]) {
+            while(i < arrA.length && arrA[i] < arrB[j]) {
                 i++;
                 mismatch++;
             }
@@ -79,4 +86,4 @@ public class KAnagrams {
 }
 
 // time taken: 40 min (timed out)
-// it works with the given answers BUT I don't think it's a correct solution 
+// it works with the given answers BUT I don't think it's a correct solution
