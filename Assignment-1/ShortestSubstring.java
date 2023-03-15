@@ -1,5 +1,5 @@
 // technique: forward-backward two-pointer
-// time complexity: O(n^2) 
+// time complexity: O(n^2)
 // space complexity: O(n)
 public class ShortestSubstring {
 
@@ -23,7 +23,7 @@ public class ShortestSubstring {
     /*
     Given a string and a second string representing required characters,
     return the length of the shortest substring containing all the required characters.
- */
+    */
     public static int shortestSubstring(String str, String req) {
         int len = str.length();
         char[] arr = str.toCharArray();
@@ -57,6 +57,5 @@ public class ShortestSubstring {
         return true;
     }
 }
-//// I am struggling with the second and third test case
-//// how do I account for multiple of the same characters in the required string?
-////
+// I am struggling with the second and third test case
+// how do I account for multiple of the same characters in the required string?
