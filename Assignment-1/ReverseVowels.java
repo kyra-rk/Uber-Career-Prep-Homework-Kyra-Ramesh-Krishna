@@ -3,7 +3,7 @@
     // --> but multiplied by whatever the time complexity of contains is
 // space complexity: O(n)
 
-public class ReverseVowels { 
+public class ReverseVowels {
 
     public static void main(String arg[]){
         String input = "Uber Career Prep";

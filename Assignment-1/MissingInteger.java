@@ -2,7 +2,7 @@
 // time complexity: O(log n)
 // space complexity: O(n) -- not sure how to do this for sorting/recursion
 // do I need to keep the stack frames (of recursion) into account?
-// question: is a helper method allowed?  
+// question: is a helper method allowed?
 
 import java.util.Arrays;
 
