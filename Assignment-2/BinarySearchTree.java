@@ -26,6 +26,15 @@ class BinarySearchTree {
         return root;
     }
 
+    public int changeData(Node n, int newData) {
+        if (n == null) {
+            return -1;
+        }
+        int oldData = n.data;
+        n.data = newData;
+        return oldData;
+    }
+
     // returns the maximum value in the BST
     int max() {
         if (root == null) {
