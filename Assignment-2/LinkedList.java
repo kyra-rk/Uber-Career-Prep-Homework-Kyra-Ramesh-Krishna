@@ -73,6 +73,26 @@ class LinkedList {
         System.out.println(list.toString(list.head));
 
         System.out.println("Length: " + list.length(list.head));
+
+        // set next to 
+
+        LinkedList list1 = new LinkedList();
+        System.out.println("testing set next to "); 
+        list1.setHead(list1.insertAtBack(list1.head, 10));
+        System.out.println(list.toString(list1.head));
+        list1.insertAtBack(list1.head, 18);
+        System.out.println(list.toString(list1.head));
+        list1.insertAtBack(list1.head, 12);
+        System.out.println(list.toString(list1.head));
+        list1.insertAtBack(list1.head, 9);
+        System.out.println(list.toString(list1.head));
+        list1.insertAtBack(list1.head, 11);
+        System.out.println(list.toString(list1.head));
+        list1.insertAtBack(list1.head, 4);
+        System.out.println(list.toString(list1.head));
+        System.out.println("------------");
+        list1.head = list1.setNextTo(list1.head, 4, 12);
+        System.out.println(list.toString(list1.head));
     }
 
     String toString(LNode head){
@@ -82,9 +102,15 @@ class LinkedList {
         }
         LNode ptr = head;
         output += ptr.data;
+        int count = 0; 
         while(ptr.next != null){
             output = output + " --> " + ptr.next.data;
             ptr = ptr.next;
+            count++;
+            // assume that no list will go above 100 elements
+            if (count > 100) {
+                break;
+            }
         }
         return output;
     }
@@ -135,6 +161,32 @@ class LinkedList {
                 return;
             }
         } while(ptr.next != null);
+    }
+
+    LNode setNextTo(LNode head, int curr, int next) {
+        if (head == null) {
+            return null; 
+        }
+        LNode currNode = head; 
+        while (currNode != null) {
+            if (currNode.data == curr) {
+                break; 
+            }
+            currNode = currNode.next; 
+        }
+        LNode newNext = head; 
+        while (newNext != null) {
+            if (newNext.data == next) {
+                break; 
+            }
+            newNext = newNext.next; 
+        }
+        if (currNode == null || newNext == null) {
+            // not found 
+            return head; 
+        }
+        currNode.next = newNext; 
+        return head; 
     }
 
     // removes first LNode; returns new head
