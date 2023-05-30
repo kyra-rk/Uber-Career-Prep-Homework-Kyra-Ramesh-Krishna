@@ -1,4 +1,4 @@
-/* Node Class */
+/* Node Class for binary tree */
     public class Node {
         int data;
         Node left;

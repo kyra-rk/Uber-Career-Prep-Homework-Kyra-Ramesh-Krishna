@@ -1,4 +1,4 @@
-/* Node Class */
+/* Node Class for singly linked list */
     public class LNode {
         int data;
         LNode next;

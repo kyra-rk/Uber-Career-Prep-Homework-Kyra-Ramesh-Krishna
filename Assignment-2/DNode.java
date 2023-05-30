@@ -1,4 +1,4 @@
-/* Node Class */
+/* Node Class for doubly linked list */
     class DNode {
         int data;
         DNode next;
