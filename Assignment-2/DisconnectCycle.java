@@ -1,7 +1,7 @@
 /* Given a singly linked list, disconnect the cycle, if one exists.
-Time taken: 
-Time complexity: 
-Space complexity: 
+Time taken: 30 min total, including creating a new setNextTo() method
+Time complexity: O(n) since I iterate through all elements, O(1) for adding to hash set 
+Space complexity: O(n) for hash set 
 */ 
 import java.util.*;
 
