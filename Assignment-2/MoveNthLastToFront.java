@@ -1,7 +1,7 @@
 /* Given a singly linked list, move the nth from the last element to the front of the list.
-Time taken: 
-Time complexity: 
-Space complexity: 
+Time taken: 24 min to set up test cases and solve it 
+Time complexity: O(n) since I am iterating through the entire list (insert at front is O(1))
+Space complexity: O(1) to store variables 
 */ 
 
 public class MoveNthLastToFront{
