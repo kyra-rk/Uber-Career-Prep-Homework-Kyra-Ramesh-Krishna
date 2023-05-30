@@ -1,23 +1,10 @@
 // Linked List Class
 class LinkedList {
 
-    private Node head;
+    LNode head;
     
     public LinkedList() {
         head = null;
-    }
-  
-    /* Node Class */
-    class Node {
-        int data;
-        Node next;
-  
-        // Constructor to create a new node
-        Node(int d)
-        {
-            data = d;
-            next = null;
-        }
     }
 
     public static void main(String[] args) {
@@ -36,6 +23,15 @@ class LinkedList {
         */
 
         LinkedList list = new LinkedList();
+        //list.head = list.insertAtFront(list.head, 1);
+        list.head = list.insertAtBack(list.head, 3);
+        list.insertAtBack(list.head, 4);
+        list.insertAtBack(list.head, 5);
+        System.out.println(list.toString(list.head));
+
+        // test 
+
+        System.out.println("end world");
 
         // insert 
 
@@ -79,12 +75,12 @@ class LinkedList {
         System.out.println("Length: " + list.length(list.head));
     }
 
-    String toString(Node head){
+    String toString(LNode head){
         String output = "";
         if (head == null) {
             return output;
         }
-        Node ptr = head;
+        LNode ptr = head;
         output += ptr.data;
         while(ptr.next != null){
             output = output + " --> " + ptr.next.data;
@@ -93,37 +89,45 @@ class LinkedList {
         return output;
     }
 
-    // creates new Node with data val at front; returns new head
-    Node insertAtFront(Node head, int val) {
-        Node temp = new Node(val);
+    LNode getHead(){
+        return head;
+    }
+
+    void setHead(LNode newHead) {
+        head = newHead;
+    }
+
+    // creates new LNode with data val at front; returns new head
+    LNode insertAtFront(LNode head, int val) {
+        LNode temp = new LNode(val);
         temp.next = head;
         head = temp;
         return head;
     }
 
-    // creates new Node with data val at end
-    void insertAtBack(Node head, int val) {
-        Node temp = new Node(val);
+    // creates new LNode with data val at end
+    LNode insertAtBack(LNode head, int val) {
+        LNode temp = new LNode(val);
         if (head == null){
             head = temp;
-            return;
+            return head;
         }
-        Node ptr = head;
+        LNode ptr = head;
         while(ptr.next != null){
             ptr = ptr.next;
         }
         ptr.next = temp;
-        return;
+        return head;
     }
 
-    // QUESTION: what if either head is null or Node loc doesn't exist? 
-    // creates new Node with data val after Node loc
-    void insertAfter(Node head, int val, Node loc) {
+    // QUESTION: what if either head is null or LNode loc doesn't exist? 
+    // creates new LNode with data val after LNode loc
+    void insertAfter(LNode head, int val, LNode loc) {
         if (head == null){
             return;
         }
-        Node temp = new Node(val);
-        Node ptr = head;
+        LNode temp = new LNode(val);
+        LNode ptr = head;
         do {
             if (ptr.data == loc.data) {
                 temp.next = ptr.next;
@@ -133,18 +137,18 @@ class LinkedList {
         } while(ptr.next != null);
     }
 
-    // removes first Node; returns new head
-    Node deleteFront(Node head) {
+    // removes first LNode; returns new head
+    LNode deleteFront(LNode head) {
         return head.next;
     }
 
-    // removes last Node
-    void deleteBack(Node head) {
+    // removes last LNode
+    void deleteBack(LNode head) {
         if (head == null){
             return;
         }
-        Node prev = null;
-        Node curr = head;
+        LNode prev = null;
+        LNode curr = head;
         while (curr.next != null){
             prev = curr;
             curr = curr.next;
@@ -152,16 +156,16 @@ class LinkedList {
         prev.next = null;
     }
 
-    // deletes Node loc; returns head
-    Node deleteNode(Node head, Node loc) {
+    // deletes LNode loc; returns head
+    LNode deleteNode(LNode head, LNode loc) {
         if (head == null){
             return null;
         }
         if (head.data == loc.data) {
             return head.next;
         }
-        Node prev = null;
-        Node curr = head;
+        LNode prev = null;
+        LNode curr = head;
         while (curr.next != null && curr.data != loc.data){
             prev = curr;
             curr = curr.next;
@@ -174,9 +178,9 @@ class LinkedList {
     }
 
     // returns length of the list
-    int length(Node head) {
+    int length(LNode head) {
         int count = 0;
-        Node ptr = head;
+        LNode ptr = head;
         while(ptr != null){
             ptr = ptr.next;
             count++;
@@ -185,13 +189,13 @@ class LinkedList {
     }
 
     // reverses the linked list iteratively
-    Node reverseIterative(Node head) {
+    LNode reverseIterative(LNode head) {
         if (head == null || head.next == null){
             return head;
         }
-        Node prev = null;
-        Node curr = head;
-        Node after = head.next;
+        LNode prev = null;
+        LNode curr = head;
+        LNode after = head.next;
         while(after != null){
             curr.next = prev;
             prev = curr;
@@ -203,15 +207,15 @@ class LinkedList {
     }
 
     // reverses the linked list recursively (Hint: you will need a helper function)
-    Node reverseRecursive(Node head) {
+    LNode reverseRecursive(LNode head) {
         return recursiveHelper(head, null);
     }
 
-    Node recursiveHelper(Node original, Node output){
+    LNode recursiveHelper(LNode original, LNode output){
         if (original == null) {
             return output;
         }
-        Node curr = original; 
+        LNode curr = original; 
         original = original.next;
         curr.next = output;
         output = curr;

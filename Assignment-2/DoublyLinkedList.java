@@ -1,32 +1,10 @@
 // Linked List Class
 class DoublyLinkedList {
 
-    private Node head;
+    DNode head;
     
     public DoublyLinkedList() {
         head = null;
-    }
-  
-    /* Node Class */
-    class Node {
-        int data;
-        Node next;
-        Node prev;
-  
-        // Constructor to create a new node
-        Node(int d)
-        {
-            data = d;
-            next = null;
-            prev = null;
-        }
-
-        public String toString(Node n){
-            if (n == null){
-                return "null";
-            }
-            return "" + n.data;
-        }
     }
 
     public static void main(String[] args) {
@@ -38,8 +16,8 @@ class DoublyLinkedList {
             - also, isn't is neccesary for me to create a linked list class 
             since my methods aren't static, I need to make an instance of a linked list.
 
-            - none of my methods allow me to create and add a node. 
-            yet I take in a node in order to insert after. this seems like a problem. 
+            - none of my methods allow me to create and add a DNode. 
+            yet I take in a DNode in order to insert after. this seems like a problem. 
             
             - would you reccomend learning python for the next assignment and using python instead?
         */
@@ -111,14 +89,14 @@ class DoublyLinkedList {
         list.checkPointers(list.head);
         System.out.println("");
 
-        System.out.println("Delete node list.head.next");
-        list.head = list.deleteNode(list.head, list.head.next);
+        System.out.println("Delete DNode list.head.next");
+        list.head = list.deleteDNode(list.head, list.head.next);
         System.out.println(list.toString(list.head));
         list.checkPointers(list.head);
         System.out.println("");
 
-        System.out.println("Delete node list.head.next");
-        list.head = list.deleteNode(list.head, list.head.next);
+        System.out.println("Delete DNode list.head.next");
+        list.head = list.deleteDNode(list.head, list.head.next);
         System.out.println(list.toString(list.head));
         list.checkPointers(list.head);
         System.out.println("");
@@ -127,12 +105,20 @@ class DoublyLinkedList {
 
     }
 
-    String toString(Node head){
+    public DNode getHead(){
+        return head;
+    }
+
+    public void setHead(DNode newNode) {
+        head = newNode;
+    }
+
+    String toString(DNode head){
         String output = "";
         if (head == null) {
             return output;
         }
-        Node ptr = head;
+        DNode ptr = head;
         output += ptr.data;
         while(ptr.next != null){
             output = output + " --> " + ptr.next.data;
@@ -141,21 +127,21 @@ class DoublyLinkedList {
         return output;
     }
 
-    String nodeToString(Node n) {
+    String nodeToString(DNode n) {
         if (n == null) {
             return "null";
         }
         return "" + n.data;
     }
 
-    void checkPointers(Node head) {
+    void checkPointers(DNode head) {
         System.out.println("--- checking pointers ---");
         if (head == null) {
             return;
         }
-        Node curr = head;
-        Node prev = curr.prev;
-        Node next = curr.next;
+        DNode curr = head;
+        DNode prev = curr.prev;
+        DNode next = curr.next;
         while(curr != null) {
             prev = curr.prev;
             next = curr.next;
@@ -166,9 +152,9 @@ class DoublyLinkedList {
         System.out.println("--- end check ---");
     }
 
-    // creates new Node with data val at front; returns new head
-    Node insertAtFront(Node head, int val) {
-        Node temp = new Node(val);
+    // creates new DNode with data val at front; returns new head
+    DNode insertAtFront(DNode head, int val) {
+        DNode temp = new DNode(val);
         temp.next = head;
         if (head != null) {
             head.prev = temp;
@@ -177,14 +163,14 @@ class DoublyLinkedList {
         return head;
     }
 
-    // creates new Node with data val at end
-    void insertAtBack(Node head, int val) {
-        Node temp = new Node(val);
+    // creates new DNode with data val at end
+    void insertAtBack(DNode head, int val) {
+        DNode temp = new DNode(val);
         if (head == null){
             head = temp;
             return;
         }
-        Node ptr = head;
+        DNode ptr = head;
         while(ptr.next != null){
             ptr = ptr.next;
         }
@@ -193,14 +179,14 @@ class DoublyLinkedList {
         return;
     }
 
-    // QUESTION: what if either head is null or Node loc doesn't exist? 
-    // creates new Node with data val after Node loc
-    void insertAfter(Node head, int val, Node loc) {
+    // QUESTION: what if either head is null or DNode loc doesn't exist? 
+    // creates new DNode with data val after DNode loc
+    void insertAfter(DNode head, int val, DNode loc) {
         if (head == null){
             return;
         }
-        Node temp = new Node(val);
-        Node ptr = head;
+        DNode temp = new DNode(val);
+        DNode ptr = head;
         do {
             if (ptr.data == loc.data) {
                 temp.next = ptr.next;
@@ -212,19 +198,19 @@ class DoublyLinkedList {
         } while(ptr.next != null);
     }
 
-    // removes first Node; returns new head
-    Node deleteFront(Node head) {
+    // removes first DNode; returns new head
+    DNode deleteFront(DNode head) {
         head.next.prev = null;
         return head.next;
     }
 
-    // removes last Node
-    void deleteBack(Node head) {
+    // removes last DNode
+    void deleteBack(DNode head) {
         if (head == null){
             return;
         }
-        Node prev = null;
-        Node curr = head;
+        DNode prev = null;
+        DNode curr = head;
         while (curr.next != null){
             prev = curr;
             curr = curr.next;
@@ -232,8 +218,8 @@ class DoublyLinkedList {
         prev.next = null;
     }
 
-    // deletes Node loc; returns head
-    Node deleteNode(Node head, Node loc) {
+    // deletes DNode loc; returns head
+    DNode deleteDNode(DNode head, DNode loc) {
         if (head == null){
             return null;
         }
@@ -241,8 +227,8 @@ class DoublyLinkedList {
             head.next.prev = null;
             return head.next;
         }
-        Node prev = null;
-        Node curr = head;
+        DNode prev = null;
+        DNode curr = head;
         while (curr.next != null && curr.data != loc.data){
             prev = curr;
             curr = curr.next;
@@ -258,9 +244,9 @@ class DoublyLinkedList {
     }
 
     // returns length of the list
-    int length(Node head) {
+    int length(DNode head) {
         int count = 0;
-        Node ptr = head;
+        DNode ptr = head;
         while(ptr != null){
             ptr = ptr.next;
             count++;
@@ -269,13 +255,13 @@ class DoublyLinkedList {
     }
 
     // reverses the linked list iteratively
-    Node reverseIterative(Node head) {
+    DNode reverseIterative(DNode head) {
         if (head == null || head.next == null){
             return head;
         }
-        Node prev = null;
-        Node curr = head;
-        Node after = head.next;
+        DNode prev = null;
+        DNode curr = head;
+        DNode after = head.next;
         while(after != null){
             curr.next = prev;
             if (prev != null) {
@@ -292,16 +278,16 @@ class DoublyLinkedList {
     }
 
     // reverses the linked list recursively (Hint: you will need a helper function)
-    Node reverseRecursive(Node head) {
+    DNode reverseRecursive(DNode head) {
         return recursiveHelper(head, null);
     }
 
-    Node recursiveHelper(Node original, Node output){
+    DNode recursiveHelper(DNode original, DNode output){
         if (original == null) {
             output.prev = null;
             return output;
         }
-        Node curr = original; 
+        DNode curr = original; 
         original = original.next;
         curr.next = output;
         if (output != null) {
