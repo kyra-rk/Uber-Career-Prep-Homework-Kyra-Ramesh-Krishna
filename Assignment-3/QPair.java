@@ -3,13 +3,13 @@ public class QPair{
     public String x;
     public int weight;
 
-    public Pair(String x, int weight) {
+    public QPair(String x, int weight) {
         this.x = x;
         this.weight = weight;
     }
 
     public String toString(){
-        return "(" + x + ", " + y + ")";
+        return "(" + x + ", " + weight + ")";
     }
 
     public String getString(){
