@@ -1,10 +1,10 @@
 /* Spec: Given a list of courses that a student needs to take to complete their major 
  * and a map of courses to their prerequisites, return a valid order for them to take 
  * their courses assuming they only take one course for their major at once.
- * Time taken: 
+ * Time taken: an hour
  * Data structure/stategy: Topological sort
- * Time Complexity: 
- * Space Complexity: 
+ * Time Complexity: O(V + E)
+ * Space Complexity: O(V)
  */
  import java.util.*;
  public class PrerequisiteCourses{
@@ -78,6 +78,7 @@
         Map<String, Integer> indegree = new HashMap<>();
         // map of every class and the courses that depend on it 
         Map<String, ArrayList<String>> classList = new HashMap<>();
+        // O(V)
         for (String c : classes){
             indegree.put(c, 0);
             classList.put(c, new ArrayList<>());
@@ -94,6 +95,7 @@
         }
         // make a queue of all courses with 0 prerecs 
         LinkedList<String> queue = new LinkedList<>();
+        // O(V)
         for (String item : classes){
             // System.out.println("item: " + item + ", get(item): " + indegree.get(item));
             if (indegree.get(item) == 0){
@@ -107,8 +109,7 @@
         while (!queue.isEmpty()) {
             current = queue.poll();
             ordered[ix++] = current;
-            // System.out.println("current: " + current + ", array: " + Arrays.toString(ordered));
-            // okay this is where I know I'm going wrong. I need to look for where current is a prerequisite. 
+            // O(V + E)
             for (String tempClass : classList.get(current)){
                 indegree.replace(tempClass, indegree.get(tempClass) - 1);
                 if (indegree.get(tempClass) == 0) {
